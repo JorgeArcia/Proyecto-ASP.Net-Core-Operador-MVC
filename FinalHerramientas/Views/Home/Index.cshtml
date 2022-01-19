@@ -1,0 +1,84 @@
+﻿@model RecuperatorioMVCCore.Models.IndexVM
+
+<html>
+<head>
+    <title>Jorge Arcia</title>
+</head>
+<body>
+    <b>
+        Arcia Hernandez Jorge Luis
+    </b>
+    <div style="background-color:aqua ; padding: 10px">
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            @Html.LabelFor(m => m.Id) <span>:</span>
+            @Html.DisplayFor(m => m.Id)
+            @Html.HiddenFor(m => m.Id)
+            <br />
+
+            @Html.LabelFor(m => m.OperadorA) <span>:</span>
+            @Html.EditorFor(m => m.OperadorA)
+            @Html.ValidationMessageFor(m => m.OperadorA)
+            <br />
+
+            <input type="submit" name="sumar" value="+" />
+            <input type="submit" name="multiplicar" value="*" />
+            <input type="submit" name="sumapredefinida" value="Sumar 111 + 1" />
+            <input type="submit" name="vertipo" value="Ver tipo: OpeA + OpeB" />
+            <input type="submit" name="eliminartipo" value="Eliminar tipo: OpeA * OpeB" />
+            <br />
+
+            @Html.LabelFor(m => m.OperadorB) <span>:</span>
+            @Html.EditorFor(m => m.OperadorB)
+            @Html.ValidationMessageFor(m => m.OperadorB)
+            <br />
+
+            @Html.LabelFor(m => m.Resultado) <span>:</span>
+            @Html.EditorFor(m => m.Resultado)
+            @Html.ValidationMessageFor(m => m.Resultado)
+            <br />
+        }
+        @Html.ValidationSummary()
+    </div>
+
+    @if (Model.Operaciones.Count != 0)
+    {
+<div style="background-color:sandybrown ; padding: 10px">
+
+    @Html.ActionLink("Eliminar todos", "eliminartodo", "Home")
+    @Html.ActionLink("Cambiar = por >>>", "cambiarpor", "Home")
+
+    <br /><br />
+    <table border="1">
+        <tr style="background-color:violet">
+            <td>@Html.LabelFor(m => m.Id)</td>
+            <td>Comando</td>
+            <td>Comando</td>
+        </tr>
+        @foreach (var operacion in Model.Operaciones)
+        {
+            <tr>
+                <td>
+                    @operacion.Id
+                </td>
+                <td>
+                    @operacion.Valor
+                </td>
+                <td>
+                    @Html.ActionLink("Eliminar", "eliminarID", "Home", new { id = operacion.Id })
+                </td>
+            </tr>
+        }
+    </table>
+
+    <br />Total de nombres: @Model.Operaciones.Count
+
+</div>
+
+    }
+    else
+    {
+            <p style="color:red">No existen operaciones</p>
+    }
+</body>
+</html>
