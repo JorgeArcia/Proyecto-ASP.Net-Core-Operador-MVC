@@ -21,7 +21,7 @@ con el uso de herramientas de programacion tales como: MVC, AJAX, LINQ, EntityFr
 -- Cada operacion registrada en nuestra base de datos y luego mostrada tendra un comando enlace de "Eliminar", para asi eliminar operaciones individualmente de nuestra base de datos
 
 Se deja adjunto Script de SQL para crear la base de datos con la tabla a usar.
-Luego para hacer tests una vez creada la base de datos, se tendra que modificar el archivo "appsettings.json" en la variable "ConnStr" sustituyendo el server name de su base de datos en SQL, como ejemplo demostrativo  ---> "ConnStr": "Server=DESKTOP-DCR8AFQ ; Database=MateDB; Integrated Security=True;" seria reemplazar "Server=DESKTOP-DCR8AFQ" por ".\SQLExpress" o por el nombre su server name del motor de SQL.
+Luego para hacer tests una vez creada la base de datos, se tendra que modificar el archivo "appsettings.json" en la variable "ConnStr" sustituyendo el server name de su base de datos en SQL, como ejemplo demostrativo  ---> "ConnStr": "Server=DESKTOP-DCR8AFQ ; Database=MateDB; Integrated Security=True;" seria reemplazar "Server=DESKTOP-DCR8AFQ" por "Server=.\SQLExpress" o por el nombre su server name del motor de SQL.
 
 Este es uno de mis proyectos donde realizo el CRUD mediante un BackEnd a la base de datos. Este uno de los primeros pasos dentro de mi inmersion al sector de IT, en el cual me encuentro en constante aprendizaje.
 
